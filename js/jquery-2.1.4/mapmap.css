@@ -1,0 +1,212 @@
+﻿html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+}
+
+#BasemapToggle {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	z-index: 50;
+}
+
+#fixedPosition{
+  position: absolute;
+  background: #33CCFF;
+	left: 120px;
+	top: 20px;
+	z-index: 54;
+	width: 255px;
+	height: 25px;
+	padding: 20px;
+	border: 1px solid black;
+	-webkit-box-shadow: 8px 8x 8px; 
+	-moz-box-shadow: 8px 8px 8px;
+	 box-shadow: 8px 8px 8px rgba(170, 170, 170, 0.5);
+	 display:none;
+}
+
+ 
+
+ #search {  
+         display:none;      
+         position: absolute;
+         z-index: 54;
+         top: 20px;
+         left: 74px;
+         
+      }
+
+#measureWindow {
+	position: absolute;
+	right: 20px;
+	top: 125px;
+	z-index: 52;
+	width: 245px;
+	padding: 20px;
+	border: 1px solid black;
+	display: none;
+}
+
+#Potioninfo {
+	position: absolute;
+	left: 25px;
+	bottom: 45px;
+	z-index: 52;
+	width: 120px;
+	padding: 2px;
+}
+
+.roundedCorners {
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+}
+
+.innerDiv {
+	background: #F1F1DC;
+	padding: 4px;
+}
+
+.dijitDialogUnderlay {
+	background-color: #666666;
+	opacity: 0.5;
+}
+
+td {
+	background-color: #dddddd;
+	
+}
+td.div
+{
+   border: 1px solid blue;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	display: block;
+	color: #999 !important;
+	height: 30px;
+	margin-left: 44px;
+	line-height: 30px;
+}
+
+ div.fieldview ul>li {
+	width: 100%;
+	background-color: #dddddd;
+	display: block;
+	clear: both;
+	margin: 8px 0px 5px 0px;
+}
+
+a:hover {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+li:hover {
+	text-decoration: none;
+	background-color: #002099; /* 改变背景色 */
+	color: #ffff00; /* 改变文字颜色 */
+}
+
+.fieldview {
+	border: 1px solid #707070;
+	background-color: #EBEBEB;
+	display: block;
+}
+
+div.fieldview ul li>a {
+	display: block;
+	color: #999 !important;
+	height: 18px;
+	margin-left: 10px;
+	line-height: 18px;
+} 
+
+img:hover
+{
+   text-decoration: none;
+	cursor: pointer;
+	background-color: #CCDDFF;
+}
+
+.tools:hover
+{
+   text-decoration: none;
+	cursor: pointer;
+	background-color: #70a800;
+}
+.menu ul{margin-left: 45px;}
+
+.menu li{
+float:left;
+margin-left:5px;
+ 
+}
+
+ .menu li>a {
+	margin-left: 2px;
+	color: #FFFFFF !important;
+	font-size:12px;
+}
+
+.menu li a:hover {
+	text-decoration: none;
+	cursor: pointer;
+	color: #FFFFFF !important;
+}
+
+.fieldandRecord
+{
+     cursor: pointer;	 
+	 width: 83px;
+     height: 20px;
+}
+
+.fieldandRecord:hover {
+	text-decoration: none;	 
+	color: #FFFFFF !important;
+}
+
+.Closetools
+    {
+        box-sizing: border-box;
+        float: right;
+        display: inline-block;
+        margin-bottom: 0px;
+        margin-left: 10px;
+        margin-right: -15px;
+        margin-top: -20px;
+        padding-bottom: 0px;
+        padding-left: 10px;
+        padding-right: 0px;
+        padding-top: 0px;
+        border: 2px;
+        width: 24px;
+        height: 24px;
+        background-image: url(images/mark/24/Close_Box_Red.png);
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+
+
+.bigSelect .dijitSelectLabel {
+    text-align:left;
+    overflow: hidden;
+    width:200px;
+}
+
+.smallSelect .dijitSelectLabel {
+    text-align:left;
+    overflow: hidden;
+    width:100px;
+}
+

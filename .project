@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>chakantupian</name>
+	<name>echarts</name>
 	<comment>Create By HBuilder</comment>
 	<projects>
 	</projects>
@@ -16,7 +16,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1565921572595</id>
+			<id>1563330523339</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
