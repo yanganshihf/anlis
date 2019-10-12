@@ -1,23 +1,113 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>带搜索框的jQuery下拉框美化插件 searchableSelect</title>
-    <link href="jquery.searchableSelect.css" rel="stylesheet" type="text/css">
-    <script src="jquery-1.11.1.min.js"></script>
-    <script src="jquery.searchableSelect.js"></script>
-  </head>
-  <body>
-    <select id="selector">
-    </select>
-    <script>
-		$(function(){
-			var data = [{"name":"银杏科","code":"110000"},{"name":"银杏属","code":"110100"},{"name":"银杏","code":"110101"},{"name":"松科","code":"120000"},{"name":"油杉属","code":"120100"},{"name":"云南油杉","code":"120101"},{"name":"铁坚油杉","code":"120102"},{"name":"油杉","code":"120103"},{"name":"冷杉属","code":"120200"},{"name":"巴山冷杉","code":"120201"},{"name":"沙松","code":"120202"},{"name":"新疆冷杉","code":"120203"},{"name":"臭松","code":"120204"},{"name":"苍山冷杉","code":"120205"},{"name":"黄杉属","code":"120300"},{"name":"黄杉","code":"120301"},{"name":"铁杉属","code":"120400"},{"name":"长苞铁杉","code":"120401"},{"name":"云南铁杉","code":"120402"},{"name":"铁杉","code":"120403"},{"name":"云杉属","code":"120500"},{"name":"云杉","code":"120501"},{"name":"红皮云杉","code":"120502"},{"name":"华北云杉","code":"120503"},{"name":"新疆云杉","code":"120504"},{"name":"天山云杉","code":"120505"},{"name":"丽江杉","code":"120506"},{"name":"鱼鳞云杉","code":"120507"},{"name":"麦吊云杉","code":"120508"},{"name":"落叶松属","code":"120600"},{"name":"太白红杉","code":"120601"},{"name":"红杉","code":"120602"},{"name":"新疆落叶松","code":"120603"},{"name":"华北落叶松","code":"120604"}]
-			for (i=0;i<data.length;i++) {
-					$("#selector").append('<option>'+data[i].name+'</option>');
-			}
-			$('#selector').searchableSelect();
-		});
-    </script>
-  </body>
-</html>
+<HTML>
+<HEAD>
+   <TITLE> ZTREE DEMO - select menu</TITLE>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="ztree/css/demo.css" />
+    <link rel="stylesheet" href="ztree/css/zTreeStyle/zTreeStyle.css" />
+    <script type="text/javascript" src="ztree/js/jquery-1.4.4.min.js" ></script>
+    <script type="text/javascript" src="ztree/js/jquery.ztree.core.js" ></script>
+    <script type="text/javascript" src="ztree/js/jquery.ztree.excheck.js" ></script>
+    <script type="text/javascript" src="ztree/js/jquery.ztree.exedit.js" ></script>
+   <SCRIPT type="text/javascript">
+       
+       var setting = {
+           view: {
+               dblClickExpand: false
+           },
+           data: {
+               simpleData: {
+                   enable: true
+               }
+           },
+           callback: {
+               beforeClick: beforeClick,
+               onClick: onClick
+           }
+       };
+       
+       var zNodes =[
+           {id:6, pId:0, name:"国家林草局"},
+           {id:64, pId:6, name:"青海省"},
+           {id:6404, pId:64, name:"固原市"},
+           {id:640402, pId:6404, name:"原州区"},
+           {id:64040201, pId:640402, name:"炭山乡"},
+           {id:64040202, pId:640402, name:"寨科乡"},
+           {id:64040203, pId:640402, name:"黄铎堡镇"}
+           /*{id:43, pId:4, name:"邯郸"},
+           {id:44, pId:4, name:"承德"},
+           {id:5, pId:0, name:"广东省", open:true},
+           {id:51, pId:5, name:"广州"},
+           {id:52, pId:5, name:"深圳"},
+           {id:53, pId:5, name:"东莞"},
+           {id:54, pId:5, name:"佛山"},
+           {id:6, pId:0, name:"福建省", open:true},
+           {id:61, pId:6, name:"福州"},
+           {id:62, pId:6, name:"厦门"},
+           {id:63, pId:6, name:"泉州"},
+           {id:64, pId:6, name:"三明"}*/
+       ];
+       
+       function beforeClick(treeId, treeNode) {
+           var check = (treeNode && !treeNode.isParent);
+           if (!check) alert("只能选择城市...");
+           return check;
+       }
+       
+       function onClick(e, treeId, treeNode) {
+           var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
+           nodes = zTree.getSelectedNodes(),
+           v = "";
+           nodes.sort(function compare(a,b){return a.id-b.id;});
+           for (var i=0, l=nodes.length; i<l; i++) {
+               v += nodes[i].name + ",";
+           }
+           if (v.length > 0 ) v = v.substring(0, v.length-1);
+           var cityObj = $("#citySel");
+           cityObj.attr("value", v);
+       }
+ 
+       function showMenu() {
+           var cityObj = $("#citySel");
+           var cityOffset = $("#citySel").offset();
+           $("#menuContent").css({left:cityOffset.left + "px", top:cityOffset.top + cityObj.outerHeight() + "px"}).slideDown("fast");
+ 
+           $("body").bind("mousedown", onBodyDown);
+       }
+       function hideMenu() {
+           $("#menuContent").fadeOut("fast");
+           $("body").unbind("mousedown", onBodyDown);
+       }
+       function onBodyDown(event) {
+           if (!(event.target.id == "menuBtn" || event.target.id == "menuContent" || $(event.target).parents("#menuContent").length>0)) {
+               hideMenu();
+           }
+       }
+ 
+       $(document).ready(function(){
+           $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+       });
+       
+   </SCRIPT>
+   <style type="text/css">
+   </style>
+ </HEAD>
+ 
+<BODY>
+<h1>下拉菜单</h1>
+<div class="content_wrap">
+   <div class="zTreeDemoBackground left">
+       <ul class="list">
+           <li class="title">&nbsp;&nbsp;<span class="highlight_red">选择城市时，按下 Ctrl 或 Cmd 键可以进行多选</span></li>
+           <li class="title">&nbsp;&nbsp;城市：<input id="citySel" type="text" readonly value="" style="width:120px;"/>
+       &nbsp;<a id="menuBtn" href="#" onclick="showMenu(); return false;">选择</a></li>
+       </ul>
+   </div>
+   
+</div>
+ 
+<div id="menuContent" class="menuContent" style="display:none; position: absolute;">
+   <ul id="treeDemo" class="ztree" style="margin-top:0; width:160px;"></ul>
+</div>
+</BODY>
+</HTML>
