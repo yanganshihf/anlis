@@ -1,34 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="cn">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<!-- jqGrid组件基础样式包-必要 -->
-		<link rel="stylesheet" href="jqgrid/css/ui.jqgrid.css" />
-		
-		<!-- jqGrid主题包-非必要 --> 
-		<!-- 在jqgrid/css/css这个目录下还有其他的主题包，可以尝试更换看效果 -->
-		<link rel="stylesheet" href="jqgrid/css/css/redmond/jquery-ui-1.8.16.custom.css" />
-
-		<!-- jquery插件包-必要 -->
-		<!-- 这个是所有jquery插件的基础，首先第一个引入 -->
-		<script type="text/javascript" src="js/jquery-1.7.1.js"></script>
-		
-		<!-- jqGrid插件包-必要 -->
-		<script type="text/javascript" src="jqgrid/js/jquery.jqGrid.src.js"></script>
-		
-		<!-- jqGrid插件的多语言包-非必要 -->
-		<!-- 在jqgrid/js/i18n下还有其他的多语言包，可以尝试更换看效果 -->
-		<script type="text/javascript" src="jqgrid/js/i18n/grid.locale-cn.js"></script>
-		<title>http://blog.mn886.net/jqGrid</title>
-		
-		<!-- 本页面初始化用到的js包，创建jqGrid的代码就在里面 -->
-		<script type="text/javascript" src="js/index.js"></script>
-	</head>
-	<body>
-		<table id="list2"></table> 
-		<div id="pager2"></div>
-		<br>
-
-		以上为创建jqGrid的简单例子。想了解全功能api，请移步<a href="http://blog.mn886.net/jqGrid">http://blog.mn886.net/jqGrid</a>
-	</body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>带搜索框的jQuery下拉框美化插件 searchableSelect</title>
+    <link href="jquery.searchableSelect.css" rel="stylesheet" type="text/css">
+    <script src="jquery-1.11.1.min.js"></script>
+    <script src="jquery.searchableSelect.js"></script>
+  </head>
+  <body>
+    <select id="selector">
+    </select>
+    <script>
+		$(function(){
+			var data = [{"name":"银杏科","code":"110000"},{"name":"银杏属","code":"110100"},{"name":"银杏","code":"110101"},{"name":"松科","code":"120000"},{"name":"油杉属","code":"120100"},{"name":"云南油杉","code":"120101"},{"name":"铁坚油杉","code":"120102"},{"name":"油杉","code":"120103"},{"name":"冷杉属","code":"120200"},{"name":"巴山冷杉","code":"120201"},{"name":"沙松","code":"120202"},{"name":"新疆冷杉","code":"120203"},{"name":"臭松","code":"120204"},{"name":"苍山冷杉","code":"120205"},{"name":"黄杉属","code":"120300"},{"name":"黄杉","code":"120301"},{"name":"铁杉属","code":"120400"},{"name":"长苞铁杉","code":"120401"},{"name":"云南铁杉","code":"120402"},{"name":"铁杉","code":"120403"},{"name":"云杉属","code":"120500"},{"name":"云杉","code":"120501"},{"name":"红皮云杉","code":"120502"},{"name":"华北云杉","code":"120503"},{"name":"新疆云杉","code":"120504"},{"name":"天山云杉","code":"120505"},{"name":"丽江杉","code":"120506"},{"name":"鱼鳞云杉","code":"120507"},{"name":"麦吊云杉","code":"120508"},{"name":"落叶松属","code":"120600"},{"name":"太白红杉","code":"120601"},{"name":"红杉","code":"120602"},{"name":"新疆落叶松","code":"120603"},{"name":"华北落叶松","code":"120604"}]
+			for (i=0;i<data.length;i++) {
+					$("#selector").append('<option>'+data[i].name+'</option>');
+			}
+			$('#selector').searchableSelect();
+		});
+    </script>
+  </body>
 </html>
